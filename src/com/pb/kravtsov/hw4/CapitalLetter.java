@@ -6,17 +6,16 @@ public class CapitalLetter {
         Scanner in = new Scanner(System.in);
         System.out.println ("Enter the string:");
         String str1 = in.nextLine();
+        char[] chAr1 = str1.toCharArray();
         String str2 = "";
-        str2 = str1.substring(0, 1).toUpperCase();
 
-        for (int i = 1; i < str1.length(); i++) {
-            if (" ".equals(str1.substring(i-1,i)))
-                str2 = str2 + str1.substring(i, i+1).toUpperCase();
-            else
-                str2 = str2 + str1.substring(i, i+1);
+        for (int i = 0; i < chAr1.length; i++) {
+            if (chAr1[i] == ' ') {
+                chAr1[i+1] = Character.toUpperCase(chAr1[i+1]);
+            }
         }
-
+        chAr1[0] = Character.toUpperCase(chAr1[0]);
+        str2 = new String(chAr1);
         System.out.println("Result:"+ str2);
-
-    }
+        }
 }
